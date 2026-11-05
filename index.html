@@ -53,48 +53,49 @@
           more. No brokers, no hidden fees!
         </p>
         <form
-          action=""
-          class="mt-8 w-full max-w-3xl bg-white/80 rounded-2xl md:rounded-full p-2 flex flex-col md:flex-row gap-2 shadow-2xl text-slate-900"
+        id="searchForm"
+          action="#"
+          class="mt-8 w-full max-w-3xl bg-white rounded-2xl md:rounded-full p-2 flex flex-col md:flex-row gap-2 shadow-2xl text-slate-900"
         >
           <select
-            name=""
-            id=""
+            name="searchArea"
+            id="searchArea"
             class="flex-1 px-4 py-3 rounded-xl md:rounded-full bg-slate-100 outline-none text-sm font-medium"
           >
             <option value="">All Areas</option>
-            <option value="">Westlands</option>
-            <option value="">Kilimani</option>
-            <option value="">Ruaka</option>
-            <option value="">Roysambu</option>
-            <option value="">Ngong</option>
-            <option value="">Kileleshwa</option>
-            <option value="">Embakasi</option>
-            <option value="">Umoja</option>
-            <option value="">Thika road</option>
-            <option value="">Kasarani</option>
+            <option value="Westlands">Westlands</option>
+            <option value="Kilimani">Kilimani</option>
+            <option value="Ruaka">Ruaka</option>
+            <option value="Roysambu">Roysambu</option>
+            <option value="Ngong">Ngong</option>
+            <option value="Kileleshwa">Kileleshwa</option>
+            <option value="Embakasi">Embakasi</option>
+            <option value="Umoja">Umoja</option>
+            <option value="Thika">Thika road</option>
+            <option value="Kasarani">Kasarani</option>
           </select>
           <select
-            name=""
-            id=""
+            name="searchType"
+            id="searchType"
             class="flex-1 px-4 py-3 rounded-xl md:rounded-full bg-slate-100 outline-none text-sm font-medium"
           >
             <option value="">All Types</option>
-            <option value="">Bedsitter</option>
-            <option value="">Studio</option>
-            <option value="">1 Bedroom</option>
-            <option value="">2 Bedroom</option>
-            <option value="">3 Bedroom</option>
+            <option value="Bedsitter">Bedsitter</option>
+            <option value="Studio">Studio</option>
+            <option value="1bedroom">1 Bedroom</option>
+            <option value="2bedroom">2 Bedroom</option>
+            <option value="3bedroom">3 Bedroom</option>
           </select>
           <select
-            name=""
-            id=""
+            name="searchPrice"
+            id="searchPrice"
             class="flex-1 px-4 py-3 rounded-xl md:rounded-full bg-slate-100 outline-none text-sm font-medium"
           >
             <option value="">Any Price</option>
-            <option value="">Under Ksh 20,000</option>
-            <option value="">Ksh 20,000 - 40,000</option>
-            <option value="">Ksh 40,000 - 70,000</option>
-            <option value="">Ksh 70,000 +</option>
+            <option value="0-20000">Under Ksh 20,000</option>
+            <option value="20000-40000">Ksh 20,000 - 40,000</option>
+            <option value="40000-70000">Ksh 40,000 - 70,000</option>
+            <option value="70000+">Ksh 70,000 +</option>
           </select>
           <button
             type="submit"
