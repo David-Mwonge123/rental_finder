@@ -160,7 +160,35 @@
           filtered.sort((a, b) => b.price - a.price);
         if (sortEl.value === "newest")
           filtered.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+        document.getElementById("resultCount").textContent =
+          `Showing ${filtered.length} houses`;
+        document
+          .getElementById("noResults")
+          .classList.toggle("hidden", filtered.length > 0);
+        grid.innerHTML = filtered
+          .map(
+            (h) => `
+        <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md">
+          <div class="relative">
+            <img src="${h.image}" alt="${h.title}" class="w-full h-52 object-cover" />
+            ${h.isNew ? '<span class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full">NEW</span>' : ""}
+            <button onclick="toggleFav(${h.id}, this)" class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full flex items-center justify-center text-slate-400 hover:text-red-500">Save</button>
+          </div>
+          <div class="p-5">
+            <div class="flex justify-between items-start">
+              <h3 class="font-bold leading-tight">${h.title}</h3>
+            </div>
+            <p class="text-sm text-slate-500 mt-1">${h.area}  ${formatType(h.type)}</p>
+            <p class="text-emerald-600 font-extrabold text-lg mt-2">Ksh ${h.price.toLocaleString()}<span class="text-sm font-normal text-slate-500">/month</span></p>
+            <p class="text-xs text-slate-500 mt-2"> ${h.water}  ${h.wifi}  ${h.security}</p>
+            <a href="details.html?id=${h.id}" class="block text-center mt-4 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold py-2.5 rounded-full">View Details</a>
+          </div>
+        </article>
+      `,
+          )
+          .join("");
       }
+      
     </script>
   </body>
 </html>
