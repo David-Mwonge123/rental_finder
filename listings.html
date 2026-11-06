@@ -143,6 +143,15 @@
         if (t === "3bedroom") return "3 Bedroom";
         return t;
       }
+       function render() {
+      let filtered = [...listings];
+
+      if (areaEl.value) filtered = filtered.filter(h => h.area === areaEl.value);
+      if (typeEl.value) filtered = filtered.filter(h => h.type === typeEl.value);
+      if (priceEl.value) {
+        const [min, max] = priceEl.value.split('-').map(Number);
+        filtered = filtered.filter(h => h.price >= min && h.price <= max);
+      }
     </script>
   </body>
 </html>
