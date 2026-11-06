@@ -29,51 +29,96 @@
       <h1 class="text-2xl md:text-3xl font-extrabold">
         All Rentals in Nairobi
       </h1>
-       <select
-            name="searchArea"
-            id="searchArea"
-            class="flex-1 px-4 py-3 rounded-xl md:rounded-full bg-slate-100 outline-none text-sm font-medium"
-          >
-            <option value="">All Areas</option>
-            <option value="Westlands">Westlands</option>
-            <option value="Kilimani">Kilimani</option>
-            <option value="Ruaka">Ruaka</option>
-            <option value="Roysambu">Roysambu</option>
-            <option value="Ngong">Ngong</option>
-            <option value="Kileleshwa">Kileleshwa</option>
-            <option value="Embakasi">Embakasi</option>
-            <option value="Umoja">Umoja</option>
-            <option value="Thika">Thika road</option>
-            <option value="Kasarani">Kasarani</option>
-          </select>
-          <select
-            name="searchType"
-            id="searchType"
-            class="flex-1 px-4 py-3 rounded-xl md:rounded-full bg-slate-100 outline-none text-sm font-medium"
-          >
-            <option value="">All Types</option>
-            <option value="Bedsitter">Bedsitter</option>
-            <option value="Studio">Studio</option>
-            <option value="1bedroom">1 Bedroom</option>
-            <option value="2bedroom">2 Bedroom</option>
-            <option value="3bedroom">3 Bedroom</option>
-          </select>
-          <select
-            name="searchPrice"
-            id="searchPrice"
-            class="flex-1 px-4 py-3 rounded-xl md:rounded-full bg-slate-100 outline-none text-sm font-medium"
-          >
-            <option value="">Any Price</option>
-            <option value="0-20000">Under Ksh 20,000</option>
-            <option value="20000-40000">Ksh 20,000 - 40,000</option>
-            <option value="40000-70000">Ksh 40,000 - 70,000</option>
-            <option value="70000+">Ksh 70,000 - 999999</option>
-          </select>
-          <select name="" id="">
-            <option value="">Newest</option>
-            <option value="">Cheapest</option>
-            <option value="">Most Expensive</option>
-          </select>
+      <select
+        name="filterArea"
+        id="filterArea"
+        class="flex-1 px-4 py-3 rounded-xl md:rounded-full bg-slate-100 outline-none text-sm font-medium"
+      >
+        <option value="">All Areas</option>
+        <option value="Westlands">Westlands</option>
+        <option value="Kilimani">Kilimani</option>
+        <option value="Ruaka">Ruaka</option>
+        <option value="Roysambu">Roysambu</option>
+        <option value="Ngong">Ngong</option>
+        <option value="Kileleshwa">Kileleshwa</option>
+        <option value="Embakasi">Embakasi</option>
+        <option value="Umoja">Umoja</option>
+        <option value="Thika">Thika road</option>
+        <option value="Kasarani">Kasarani</option>
+      </select>
+      <select
+        name="filterType"
+        id="filterType"
+        class="flex-1 px-4 py-3 rounded-xl md:rounded-full bg-slate-100 outline-none text-sm font-medium"
+      >
+        <option value="">All Types</option>
+        <option value="Bedsitter">Bedsitter</option>
+        <option value="Studio">Studio</option>
+        <option value="1bedroom">1 Bedroom</option>
+        <option value="2bedroom">2 Bedroom</option>
+        <option value="3bedroom">3 Bedroom</option>
+      </select>
+      <select
+        name="filterPrice"
+        id="filterPrice"
+        class="flex-1 px-4 py-3 rounded-xl md:rounded-full bg-slate-100 outline-none text-sm font-medium"
+      >
+        <option value="">Any Price</option>
+        <option value="0-20000">Under Ksh 20,000</option>
+        <option value="20000-40000">Ksh 20,000 - 40,000</option>
+        <option value="40000-70000">Ksh 40,000 - 70,000</option>
+        <option value="70000+">Ksh 70,000 - 999999</option>
+      </select>
+      <select
+        name="sortBy"
+        id="sortBy"
+        class="flex-1 px-4 py-3 rounded-xl md:rounded-full bg-slate-100 outline-none text-sm font-medium"
+      >
+        <option value="">Newest</option>
+        <option value="">Cheapest</option>
+        <option value="">Most Expensive</option>
+      </select>
     </section>
+    <main class="max-w-6xl mx-auto px-5 md:px-10 pb-12">
+      <div
+        id="listingsGrid"
+        class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      ></div>
+      <p id="noResults" class="hidden text-center text-slate-500 py-12">
+        No houses found. Try clearing filters.
+      </p>
+    </main>
+     <footer class="bg-white border-t border-slate-200 px-5 py-8 md:px-10">
+      <div
+        class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 max-w-6xl mx-auto"
+      >
+        <div class="text-xl font-extrabold">
+          Nairobi<span class="text-emerald-600">Rentals</span>
+        </div>
+        <p>
+          Follow us on:
+          <a
+            href="#"
+            aria-label="visit our facebook page"
+            class="text-2xl text-emerald-600"
+            ><i class="fa-brands fa-square-facebook"></i
+          ></a>
+          <a
+            href="#"
+            aria-label="visit our instagram page"
+            class="text-2xl text-emerald-600"
+            ><i class="fa-brands fa-square-instagram"></i
+          ></a>
+          <a
+            href="#"
+            aria-label="visit our tiktok page"
+            class="text-2xl text-emerald-600"
+            ><i class="fa-brands fa-tiktok"></i
+          ></a>
+        </p>
+
+        <p class="font-bold">&copy; 2026 Nairobi Rental Finder</p>
+      </div>
+    </footer>
   </body>
 </html>
