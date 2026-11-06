@@ -143,14 +143,23 @@
         if (t === "3bedroom") return "3 Bedroom";
         return t;
       }
-       function render() {
-      let filtered = [...listings];
+      function render() {
+        let filtered = [...listings];
 
-      if (areaEl.value) filtered = filtered.filter(h => h.area === areaEl.value);
-      if (typeEl.value) filtered = filtered.filter(h => h.type === typeEl.value);
-      if (priceEl.value) {
-        const [min, max] = priceEl.value.split('-').map(Number);
-        filtered = filtered.filter(h => h.price >= min && h.price <= max);
+        if (areaEl.value)
+          filtered = filtered.filter((h) => h.area === areaEl.value);
+        if (typeEl.value)
+          filtered = filtered.filter((h) => h.type === typeEl.value);
+        if (priceEl.value) {
+          const [min, max] = priceEl.value.split("-").map(Number);
+          filtered = filtered.filter((h) => h.price >= min && h.price <= max);
+        }
+        if (sortEl.value === "cheapest")
+          filtered.sort((a, b) => a.price - b.price);
+        if (sortEl.value === "expensive")
+          filtered.sort((a, b) => b.price - a.price);
+        if (sortEl.value === "newest")
+          filtered.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
       }
     </script>
   </body>
