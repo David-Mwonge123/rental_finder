@@ -88,7 +88,7 @@
         No houses found. Try clearing filters.
       </p>
     </main>
-     <footer class="bg-white border-t border-slate-200 px-5 py-8 md:px-10">
+    <footer class="bg-white border-t border-slate-200 px-5 py-8 md:px-10">
       <div
         class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 max-w-6xl mx-auto"
       >
@@ -120,5 +120,29 @@
         <p class="font-bold">&copy; 2026 Nairobi Rental Finder</p>
       </div>
     </footer>
+
+    <script>
+      const grid = document.getElementById("listingsGrid");
+      const areaEl = document.getElementById("filterArea");
+      const typeEl = document.getElementById("filterType");
+      const priceEl = document.getElementById("filterPrice");
+      const sortEl = document.getElementById("sortBy");
+
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("area")) areaEl.value = params.get("area");
+      if (params.get("type")) typeEl.value = params.get("type");
+      if (params.get("price")) {
+        let p = params.get("price");
+        if (p === "70000+") p = "70000-999999";
+        priceEl.value = p;
+      }
+
+      function formatType(t) {
+        if (t === "1bedroom") return "1 Bedroom";
+        if (t === "2bedroom") return "2 Bedroom";
+        if (t === "3bedroom") return "3 Bedroom";
+        return t;
+      }
+    </script>
   </body>
 </html>
