@@ -29,6 +29,9 @@
       <h1 class="text-2xl md:text-3xl font-extrabold">
         All Rentals in Nairobi
       </h1>
+      <p id="resultCount" class="text-sm text-slate-500 mt-1">
+        Showing 12 houses
+      </p>
       <select
         name="filterArea"
         id="filterArea"
@@ -67,16 +70,16 @@
         <option value="0-20000">Under Ksh 20,000</option>
         <option value="20000-40000">Ksh 20,000 - 40,000</option>
         <option value="40000-70000">Ksh 40,000 - 70,000</option>
-        <option value="70000+">Ksh 70,000 - 999999</option>
+        <option value="70000-999999">Ksh 70,000 +</option>
       </select>
       <select
         name="sortBy"
         id="sortBy"
         class="flex-1 px-4 py-3 rounded-xl md:rounded-full bg-slate-100 outline-none text-sm font-medium"
       >
-        <option value="">Newest</option>
-        <option value="">Cheapest</option>
-        <option value="">Most Expensive</option>
+        <option value="Newest">Newest</option>
+        <option value="Cheapest">Cheapest</option>
+        <option value="Expensive">Most Expensive</option>
       </select>
     </section>
     <main class="max-w-6xl mx-auto px-5 md:px-10 pb-12">
@@ -120,7 +123,6 @@
         <p class="font-bold">&copy; 2026 Nairobi Rental Finder</p>
       </div>
     </footer>
-
     <script>
       const grid = document.getElementById("listingsGrid");
       const areaEl = document.getElementById("filterArea");
@@ -188,23 +190,6 @@
           )
           .join("");
       }
-      function toggleFav(id, btn) {
-        let favs = JSON.parse(localStorage.getItem("favs") || "[]");
-        if (favs.includes(id)) {
-          favs = favs.filter((f) => f !== id);
-          btn.style.color = "";
-        } else {
-          favs.push(id);
-          btn.style.color = "red";
-        }
-        localStorage.setItem("favs", JSON.stringify(favs));
-      }
-
-      // Live filter - every change re-renders
-      [areaEl, typeEl, priceEl, sortEl].forEach((el) =>
-        el.addEventListener("change", render),
-      );
-      render();
     </script>
   </body>
 </html>
