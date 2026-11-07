@@ -132,6 +132,19 @@
           </div>
         `;
       }
+      function toggleFav(id, btn) {
+        let favs = JSON.parse(localStorage.getItem("favs") || "[]");
+        if (favs.includes(id)) {
+          favs = favs.filter((f) => f !== id);
+          btn.classList.remove("text-red-500");
+          btn.classList.add("text-slate-400");
+        } else {
+          favs.push(id);
+          btn.classList.remove("text-slate-400");
+          btn.classList.add("text-red-500");
+        }
+        localStorage.setItem("favs", JSON.stringify(favs));
+      }
     </script>
   </body>
 </html>
