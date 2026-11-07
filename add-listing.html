@@ -25,155 +25,159 @@
         >Add a Listing
       </a>
     </nav>
-    <h1 class="text-2xl md:text-3xl font-extrabold m-4">List Your Property</h1>
-    <p class="text-slate-500 text-sm mt-2 m-4">
-      Fill this form. Your house will appear on the Listings page instantly.
-    </p>
-
-    <form
-      id="addForm"
-      class="bg-white rounded-2xl shadow-sm p-6 mt-6 space-y-4"
-    >
-      <div>
-        <label class="font-bold text-sm">House Title</label>
-        <input
-          id="title"
-          required
-          aria-label="required"
-          placeholder="e.g. Modern 1 Bedroom in Roysambu"
-          class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
-        />
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-4">
-        <div>
-          <label class="font-bold text-sm">Area</label>
-          <select
-            id="area"
-            required
-            aria-label="required"
-            class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
-          >
-            <option value="">Select Area</option>
-            <option>Westlands</option>
-            <option>Kilimani</option>
-            <option>Ruaka</option>
-            <option>Roysambu</option>
-            <option>Ngong</option>
-            <option>Kileleshwa</option>
-            <option>Embakasi</option>
-            <option>Umoja</option>
-            <option>Thika</option>
-            <option>Kasarani</option>
-          </select>
-        </div>
-        <div>
-          <label class="font-bold text-sm">Type</label>
-          <select
-            id="type"
-            required
-            aria-label="required"
-            class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
-          >
-            <option value="">Select Type</option>
-            <option value="Bedsitter">Bedsitter</option>
-            <option value="Studio">Studio</option>
-            <option value="1bedroom">1 Bedroom</option>
-            <option value="2bedroom">2 Bedroom</option>
-            <option value="3bedroom">3 Bedroom</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-4">
-        <div>
-          <label class="font-bold text-sm">Price per month (Ksh)</label>
-          <input
-            id="price"
-            type="number"
-            required
-            aria-label="required"
-            min="1000"
-            placeholder="e.g. 25000"
-            class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
-          />
-        </div>
-        <div>
-          <label class="font-bold text-sm">Your Phone number</label>
-          <input
-            id="phone"
-            required
-            aria-label="required"
-            placeholder="0700000000"
-            class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
-          />
-        </div>
-      </div>
-
-      <div class="grid sm:grid-cols-3 gap-4">
-        <div>
-          <label class="font-bold text-sm">Water</label>
-          <select
-            id="water"
-            class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
-          >
-            <option>24/7</option>
-            <option>Daily</option>
-            <option>Twice a week</option>
-          </select>
-        </div>
-        <div>
-          <label class="font-bold text-sm">Wifi</label>
-          <select
-            id="wifi"
-            class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
-          >
-            <option>Free Wifi</option>
-            <option>Available</option>
-            <option>Not Available</option>
-          </select>
-        </div>
-        <div>
-          <label class="font-bold text-sm">Security</label>
-          <select
-            id="security"
-            class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
-          >
-            <option>CCTV</option>
-            <option>Guard</option>
-            <option>Guard + CCTV</option>
-          </select>
-        </div>
-      </div>
-
-      <div>
-        <label class="font-bold text-sm">House Photo</label>
-        <input
-          id="imageInput"
-          type="file"
-          accept="image/*"
-          class="w-full mt-1 text-sm"
-        />
-        <img
-          id="preview"
-          class="hidden w-full h-48 object-cover rounded-xl mt-3"
-        />
-        <p class="text-xs text-slate-400 mt-1">
-          If you don't choose a photo, we will use a default one.
-        </p>
-      </div>
-
-      <button
-        class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-full"
-      >
-        Submit Listing
-      </button>
-      <p
-        id="successMsg"
-        class="hidden text-center text-emerald-600 font-bold text-sm"
-      >
-        Your house is live! Redirecting to Listings...
+    <main>
+      <h1 class="text-2xl md:text-3xl font-extrabold m-4">
+        List Your Property
+      </h1>
+      <p class="text-slate-500 text-sm mt-2 m-4">
+        Fill this form. Your house will appear on the Listings page instantly.
       </p>
-    </form>
+
+      <form
+        id="addForm"
+        class="bg-white rounded-2xl shadow-sm p-6 mt-6 space-y-4"
+      >
+        <div>
+          <label class="font-bold text-sm">House Title</label>
+          <input
+            id="title"
+            required
+            aria-label="required"
+            placeholder="e.g. Modern 1 Bedroom in Roysambu"
+            class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+          />
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="font-bold text-sm">Area</label>
+            <select
+              id="area"
+              required
+              aria-label="required"
+              class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+            >
+              <option value="">Select Area</option>
+              <option>Westlands</option>
+              <option>Kilimani</option>
+              <option>Ruaka</option>
+              <option>Roysambu</option>
+              <option>Ngong</option>
+              <option>Kileleshwa</option>
+              <option>Embakasi</option>
+              <option>Umoja</option>
+              <option>Thika</option>
+              <option>Kasarani</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-bold text-sm">Type</label>
+            <select
+              id="type"
+              required
+              aria-label="required"
+              class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+            >
+              <option value="">Select Type</option>
+              <option value="Bedsitter">Bedsitter</option>
+              <option value="Studio">Studio</option>
+              <option value="1bedroom">1 Bedroom</option>
+              <option value="2bedroom">2 Bedroom</option>
+              <option value="3bedroom">3 Bedroom</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="font-bold text-sm">Price per month (Ksh)</label>
+            <input
+              id="price"
+              type="number"
+              required
+              aria-label="required"
+              min="1000"
+              placeholder="e.g. 25000"
+              class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+            />
+          </div>
+          <div>
+            <label class="font-bold text-sm">Your Phone number</label>
+            <input
+              id="phone"
+              required
+              aria-label="required"
+              placeholder="0700000000"
+              class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+            />
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div>
+            <label class="font-bold text-sm">Water</label>
+            <select
+              id="water"
+              class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+            >
+              <option>24/7</option>
+              <option>Daily</option>
+              <option>Twice a week</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-bold text-sm">Wifi</label>
+            <select
+              id="wifi"
+              class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+            >
+              <option>Free Wifi</option>
+              <option>Available</option>
+              <option>Not Available</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-bold text-sm">Security</label>
+            <select
+              id="security"
+              class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+            >
+              <option>CCTV</option>
+              <option>Guard</option>
+              <option>Guard + CCTV</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="font-bold text-sm">House Photo</label>
+          <input
+            id="imageInput"
+            type="file"
+            accept="image/*"
+            class="w-full mt-1 text-sm"
+          />
+          <img
+            id="preview"
+            class="hidden w-full h-48 object-cover rounded-xl mt-3"
+          />
+          <p class="text-xs text-slate-400 mt-1">
+            If you don't choose a photo, we will use a default one.
+          </p>
+        </div>
+
+        <button
+          class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-full"
+        >
+          Submit Listing
+        </button>
+        <p
+          id="successMsg"
+          class="hidden text-center text-emerald-600 font-bold text-sm"
+        >
+          Your house is live! Redirecting to Listings...
+        </p>
+      </form>
+    </main>
   </body>
 </html>
