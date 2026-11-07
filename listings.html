@@ -190,6 +190,22 @@
           )
           .join("");
       }
+      function toggleFav(id, btn) {
+        let favs = JSON.parse(localStorage.getItem("favs") || "[]");
+        if (favs.includes(id)) {
+          favs = favs.filter((f) => f !== id);
+          btn.style.color = "";
+        } else {
+          favs.push(id);
+          btn.style.color = "red";
+        }
+        localStorage.setItem("favs", JSON.stringify(favs));
+      }
+
+      [areaEl, typeEl, priceEl, sortEl].forEach((el) =>
+        el.addEventListener("change", render),
+      );
+      render();
     </script>
   </body>
 </html>
