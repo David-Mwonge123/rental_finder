@@ -20,9 +20,9 @@
         <a href="about.html#contact" class="hover:text-emerald-600">Contact</a>
       </div>
       <a
-        href="add-listings.html"
+        href="add-listing.html"
         class="bg-emerald-600 text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-emerald-800"
-        >List Properties</a
+        >Add a Listing</a
       >
     </nav>
     <section class="max-w-6xl mx-auto px-5 md:px-10 pt-8 mb-10">
@@ -175,7 +175,7 @@
           <div class="relative">
             <img src="${h.image}" alt="${h.title}" class="w-full h-52 object-cover" />
             ${h.isNew ? '<span class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full">NEW</span>' : ""}
-            <button onclick="toggleFav(${h.id}, this)" class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full flex items-center justify-center text-slate-400 hover:text-red-500">&#9829</button>
+            <button onclick="toggleFav(${h.id}, this)" class="absolute top-3 right-3 w-9 h-9 bg-white rounded-full flex items-center justify-center text-slate-400 hover:text-red-500">&#9829;</button>
           </div>
           <div class="p-5">
             <div class="flex justify-between items-start">
