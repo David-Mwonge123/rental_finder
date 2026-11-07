@@ -151,7 +151,11 @@
         return t;
       }
       function render() {
-        let filtered = [...listings];
+        const userListings = JSON.parse(
+          localStorage.getItem("userListings") || "[]",
+        );
+        const allListings = [...listings, ...userListings];
+        let filtered = [...alllistings];
 
         if (areaEl.value)
           filtered = filtered.filter((h) => h.area === areaEl.value);
