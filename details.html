@@ -76,5 +76,62 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const id = Number(params.get("id"));
+      const h = listings.find((house) => house.id === id);
+
+      function formatType(t) {
+        if (t === "1bedroom") return "1 Bedroom";
+        if (t === "2bedroom") return "2 Bedroom";
+        if (t === "3bedroom") return "3 Bedroom";
+        return t;
+      }
+
+      if (!h) {
+        document.getElementById("notFound").classList.remove("hidden");
+      } else {
+        const waPhone = "254" + h.phone.slice(1);
+        const favs = JSON.parse(localStorage.getItem("favs") || "[]");
+        const isFav = favs.includes(h.id);
+
+        document.getElementById("details").innerHTML = `
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm grid md:grid-cols-2">
+            <div class="relative">
+              <img src="${h.image}" alt="${h.title}" class="w-full h-72 md:h-full object-cover" />
+              ${h.isNew ? '<span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full">NEW</span>' : ""}
+            </div>
+
+            <div class="p-6 md:p-8">
+              <div class="flex justify-between items-start gap-4">
+                <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">${h.title}</h1>
+                <button onclick="toggleFav(${h.id}, this)" class="shrink-0 w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-2xl ${isFav ? "text-red-500" : "text-slate-400"}">&#9829;</button>
+              </div>
+
+              <p class="text-slate-500 mt-2">${h.area} | ${formatType(h.type)}</p>
+              <p class="text-emerald-600 font-extrabold text-3xl mt-4">Ksh ${h.price.toLocaleString()}<span class="text-sm font-normal text-slate-500">/month</span></p>
+
+              <h2 class="font-bold mt-6 mb-2">What you get</h2>
+              <div class="flex flex-wrap gap-2 text-sm text-slate-700">
+                <span class="bg-slate-100 px-3 py-1.5 rounded-full">Water: ${h.water}</span>
+                <span class="bg-slate-100 px-3 py-1.5 rounded-full">Wifi: ${h.wifi}</span>
+                <span class="bg-slate-100 px-3 py-1.5 rounded-full">Security: ${h.security}</span>
+              </div>
+
+              <h2 class="font-bold mt-6 mb-2">About this house</h2>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Spacious and well-lit ${formatType(h.type).toLowerCase()} in ${h.area} with reliable water, good security and easy access to transport. Perfect for anyone looking for a comfortable home in Nairobi.
+              </p>
+
+              <div class="flex flex-col sm:flex-row gap-3 mt-8">
+                <a href="tel:${h.phone}" class="flex-1 text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-full">Call ${h.phone}</a>
+                <a href="https://wa.me/${waPhone}?text=Hi, I saw your ${encodeURIComponent(h.title)} on Nairobi Rentals. Is it still available?" target="_blank" class="flex-1 text-center bg-white border-2 border-emerald-600 text-emerald-700 font-bold py-3 rounded-full">WhatsApp</a>
+              </div>
+              <p class="text-xs text-slate-400 mt-3 text-center">Landlord replies faster on WhatsApp</p>
+            </div>
+          </div>
+        `;
+      }
+    </script>
   </body>
 </html>
