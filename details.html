@@ -83,7 +83,11 @@
     <script>
       const params = new URLSearchParams(window.location.search);
       const id = Number(params.get("id"));
-      const h = listings.find((house) => house.id === id);
+      const userListings = JSON.parse(
+        localStorage.getItem("userListings") || "[]",
+      );
+      const allListings = [...listings, ...userListings];
+      const h = allListings.find((house) => house.id === id);
 
       function formatType(t) {
         if (t === "1bedroom") return "1 Bedroom";
