@@ -179,5 +179,54 @@
         </p>
       </form>
     </main>
+
+    <script>
+      let imageData = "images/aptmnt1.jpg"; // default photo
+
+      document
+        .getElementById("imageInput")
+        .addEventListener("change", function (e) {
+          const file = e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = function () {
+            imageData = reader.result;
+            const preview = document.getElementById("preview");
+            preview.src = imageData;
+            preview.classList.remove("hidden");
+          };
+          reader.readAsDataURL(file);
+        });
+
+      document
+        .getElementById("addForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const newHouse = {
+            id: Date.now(),
+            title: document.getElementById("title").value.trim(),
+            area: document.getElementById("area").value,
+            type: document.getElementById("type").value,
+            price: Number(document.getElementById("price").value),
+            beds: 0,
+            image: imageData,
+            water: document.getElementById("water").value,
+            wifi: document.getElementById("wifi").value,
+            security: document.getElementById("security").value,
+            phone: document.getElementById("phone").value.trim(),
+            isNew: true,
+          };
+
+          const saved = JSON.parse(
+            localStorage.getItem("userListings") || "[]",
+          );
+          saved.push(newHouse);
+          localStorage.setItem("userListings", JSON.stringify(saved));
+
+          document.getElementById("successMsg").classList.remove("hidden");
+          setTimeout(() => (window.location.href = "listings.html"), 1200);
+        });
+    </script>
   </body>
 </html>
