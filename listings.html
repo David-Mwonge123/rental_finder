@@ -155,7 +155,7 @@
           localStorage.getItem("userListings") || "[]",
         );
         const allListings = [...listings, ...userListings];
-        let filtered = [...alllistings];
+        let filtered = [...allListings];
 
         if (areaEl.value)
           filtered = filtered.filter((h) => h.area === areaEl.value);
