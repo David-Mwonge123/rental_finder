@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Details | Nairobi Rentals</title>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-     <nav
+  </head>
+  <body>
+    <nav
       class="flex items-center justify-between px-5 py-4 bg-white shadow-sm sticky top-0 z-10 md:px-10"
     >
       <div class="text-xl font-extrabold">
@@ -22,8 +22,24 @@
       <a
         href="add-listings.html"
         class="bg-emerald-600 text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-emerald-800"
-        >Add a Listing </a
-      >
+        >Add a Listing
+      </a>
     </nav>
-</body>
+
+    <main class="max-w-6xl mx-auto px-5 md:px-10 py-8">
+      <a
+        href="listings.html"
+        class="text-sm font-medium text-slate-600 hover:text-emerald-600"
+        >Back to Listings</a
+      >
+
+      <div id="details" class="mt-4"></div>
+      <p id="notFound" class="hidden text-center py-16 text-slate-500">
+        House not found.
+        <a href="listings.html" class="text-emerald-600 font-bold"
+          >Go back to listings</a
+        >
+      </p>
+    </main>
+  </body>
 </html>
