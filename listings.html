@@ -183,7 +183,12 @@
             </div>
             <p class="text-sm text-slate-500 mt-1">${h.area} | ${formatType(h.type)}</p>
             <p class="text-emerald-600 font-extrabold text-lg mt-2">Ksh ${h.price.toLocaleString()}<span class="text-sm font-normal text-slate-500">/month</span></p>
-            <p class="text-xs text-slate-500 mt-2"> ${h.water} | ${h.wifi} | ${h.security}</p>
+            <div class="flex flex-wrap gap-2 mt-3 text-xs text-slate-600">
+             <span class="bg-slate-100 px-2 py-1 rounded-full">Water: ${h.water}</span>
+             <span class="bg-slate-100 px-2 py-1 rounded-full">Wifi: ${h.wifi}</span>
+             <span class="bg-slate-100 px-2 py-1 rounded-full">Security: ${h.security}</span>
+            </div>
+            
             <a href="details.html?id=${h.id}" class="block text-center mt-4 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold py-2.5 rounded-full">View Details</a>
           </div>
         </article>
