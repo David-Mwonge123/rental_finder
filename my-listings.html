@@ -25,5 +25,58 @@
         >Add a Listing
       </a>
     </nav>
+
+    <main class="max-w-6xl mx-auto px-5 md:px-10 py-8">
+      <h1 class="text-2xl font-extrabold">My Listings</h1>
+      <p id="count" class="text-sm text-slate-500 mt-2"></p>
+      <div
+        id="grid"
+        class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"
+      ></div>
+      <div id="empty" class="hidden text-center py-16">
+        <p class="text-slate-500">You haven't added any listings yet.</p>
+        <a
+          href="add-listing.html"
+          class="inline-block mt-4 bg-emerald-600 text-white font-bold px-6 py-2.5 rounded-full"
+          >Add a Listing</a
+        >
+      </div>
+    </main>
+
+    <script>
+      function renderMy() {
+        const mine = JSON.parse(localStorage.getItem("userListings") || "[]");
+        document.getElementById("count").textContent =
+          `Showing ${mine.length} of your houses`;
+        document
+          .getElementById("empty")
+          .classList.toggle("hidden", mine.length > 0);
+        document.getElementById("grid").innerHTML = mine
+          .map(
+            (h) => `
+      <article class="bg-white rounded-2xl overflow-hidden shadow-sm">
+        <img src="${h.image}" class="w-full h-48 object-cover" />
+        <div class="p-5">
+          <h2 class="font-bold">${h.title}</h2>
+          <p class="text-sm text-slate-500">${h.area}</p>
+          <p class="text-emerald-600 font-extrabold mt-2">Ksh ${h.price.toLocaleString()}/month</p>
+          <div class="flex gap-2 mt-4">
+            <a href="details.html?id=${h.id}" class="flex-1 text-center bg-slate-100 font-bold text-sm py-2 rounded-full">View</a>
+            <button onclick="deleteMy(${h.id})" class="flex-1 bg-red-50 text-red-600 font-bold text-sm py-2 rounded-full">Delete</button>
+          </div>
+        </div>
+      </article>`,
+          )
+          .join("");
+      }
+      function deleteMy(id) {
+        if (!confirm("Delete this listing?")) return;
+        let mine = JSON.parse(localStorage.getItem("userListings") || "[]");
+        mine = mine.filter((h) => h.id !== id);
+        localStorage.setItem("userListings", JSON.stringify(mine));
+        renderMy();
+      }
+      renderMy();
+    </script>
   </body>
 </html>
