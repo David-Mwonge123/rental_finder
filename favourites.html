@@ -47,5 +47,45 @@
         >
       </div>
     </main>
+    <script src="js/script.js"></script>
+    <script>
+      function renderFav() {
+        const favs = JSON.parse(localStorage.getItem("favs") || "[]");
+        const userListings = JSON.parse(
+          localStorage.getItem("userListings") || "[]",
+        );
+        const all = [...listings, ...userListings];
+        const mine = all.filter((h) => favs.includes(h.id));
+        document.getElementById("count").textContent =
+          `You saved ${mine.length} houses`;
+        document
+          .getElementById("empty")
+          .classList.toggle("hidden", mine.length > 0);
+        document.getElementById("grid").innerHTML = mine
+          .map(
+            (h) => `
+      <article class="bg-white rounded-2xl overflow-hidden shadow-sm">
+        <img src="${h.image}" class="w-full h-48 object-cover" />
+        <div class="p-5">
+          <h3 class="font-bold">${h.title}</h3>
+          <p class="text-sm text-slate-500">${h.area}</p>
+          <p class="text-emerald-600 font-extrabold mt-2">Ksh ${h.price.toLocaleString()}/month</p>
+          <div class="flex gap-2 mt-4">
+            <a href="details.html?id=${h.id}" class="flex-1 text-center bg-slate-100 font-bold text-sm py-2 rounded-full">View Details</a>
+            <button onclick="removeFav(${h.id})" class="flex-1 bg-red-50 text-red-600 font-bold text-sm py-2 rounded-full">Remove</button>
+          </div>
+        </div>
+      </article>`,
+          )
+          .join("");
+      }
+      function removeFav(id) {
+        let favs = JSON.parse(localStorage.getItem("favs") || "[]");
+        favs = favs.filter((f) => f !== id);
+        localStorage.setItem("favs", JSON.stringify(favs));
+        renderFav();
+      }
+      renderFav();
+    </script>
   </body>
 </html>
