@@ -31,7 +31,7 @@
           <label class="font-bold text-sm">Full Name</label>
           <input
             id="authName"
-            placeholder="e.g. Kevin Kamau"
+            placeholder="e.g. David Mwonge"
             required
             class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
           />
@@ -82,7 +82,7 @@
         />
         <button
           onclick="doVerify()"
-          class="w-full bg-slate-900 text-white font-bold py-3 rounded-full"
+          class="w-full bg-emerald-600 text-white font-bold py-3 rounded-full"
         >
           Verify Me
         </button>
@@ -101,7 +101,7 @@
         <a
           href="add-listing.html"
           class="inline-block mt-4 bg-emerald-600 text-white font-bold text-sm px-6 py-3 rounded-full"
-          >Add a Listing →</a
+          >Add a Listing</a
         >
         <button
           onclick="logout()"
@@ -111,5 +111,98 @@
         </button>
       </div>
     </main>
+    <script>
+      function getUsers() {
+        return JSON.parse(localStorage.getItem("users") || "[]");
+      }
+      function getCurrent() {
+        return JSON.parse(localStorage.getItem("currentUser") || "null");
+      }
+
+      function showState() {
+        const cur = getCurrent();
+        if (!cur) {
+          return;
+        }
+        document.getElementById("authBox").classList.add("hidden");
+        if (!cur.verified) {
+          document.getElementById("verifyBox").classList.remove("hidden");
+        } else {
+          document.getElementById("verifyBox").classList.add("hidden");
+          document.getElementById("loggedInBox").classList.remove("hidden");
+          document.getElementById("welcomeText").textContent =
+            "Welcome, " + cur.name;
+          document.getElementById("statusText").textContent =
+            cur.phone + " • Verified Lister ✓";
+        }
+      }
+
+      function doAuth() {
+        const name = document.getElementById("authName").value.trim();
+        const phone = document.getElementById("authPhone").value.trim();
+        const pass = document.getElementById("authPass").value.trim();
+        const msg = document.getElementById("authMsg");
+        if (!phone || !pass) {
+          msg.textContent = "Enter phone + password";
+          msg.classList.remove("hidden");
+          return;
+        }
+        if (phone.length < 10) {
+          msg.textContent = "Enter a valid Kenyan number e.g. 0700000000";
+          msg.classList.remove("hidden");
+          return;
+        }
+
+        let users = getUsers();
+        let user = users.find((u) => u.phone === phone);
+        if (user) {
+          if (user.password !== pass) {
+            msg.textContent = "Wrong password for this number";
+            msg.classList.remove("hidden");
+            return;
+          }
+        } else {
+          if (!name) {
+            msg.textContent = "Enter your name to create account";
+            msg.classList.remove("hidden");
+            return;
+          }
+          user = {
+            name,
+            phone,
+            password: pass,
+            verified: false,
+            createdAt: Date.now(),
+          };
+          users.push(user);
+          localStorage.setItem("users", JSON.stringify(users));
+        }
+        localStorage.setItem("currentUser", JSON.stringify(user));
+        showState();
+      }
+
+      function doVerify() {
+        const code = document.getElementById("verifyCode").value.trim();
+        if (code !== "1234") {
+          document.getElementById("verifyMsg").textContent =
+            "Wrong code. Demo code is 1234";
+          document.getElementById("verifyMsg").classList.remove("hidden");
+          return;
+        }
+        let users = getUsers();
+        let cur = getCurrent();
+        cur.verified = true;
+        users = users.map((u) => (u.phone === cur.phone ? cur : u));
+        localStorage.setItem("users", JSON.stringify(users));
+        localStorage.setItem("currentUser", JSON.stringify(cur));
+        showState();
+      }
+
+      function logout() {
+        localStorage.removeItem("currentUser");
+        location.reload();
+      }
+      showState();
+    </script>
   </body>
 </html>
