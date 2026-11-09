@@ -122,5 +122,33 @@
         <p class="font-bold">&copy; 2026 Nairobi Rental Finder</p>
       </div>
     </footer>
+    <script>
+      function calc() {
+        const income = +document.getElementById("income").value;
+        const rent = +document.getElementById("rent").value;
+        const expenses = +document.getElementById("expenses").value || 0;
+        if (!income || !rent)
+          return document.getElementById("result").classList.add("hidden");
+        const pct = Math.round((rent / income) * 100);
+        const maxRent = Math.round(income * 0.3);
+        const left = income - rent - expenses;
+        document.getElementById("result").classList.remove("hidden");
+        const ok = pct <= 30;
+        document.getElementById("verdict").textContent = ok
+          ? "Yes, You Can Afford It!"
+          : "Too Expensive";
+        document.getElementById("verdict").className =
+          "text-xl font-extrabold " +
+          (ok ? "text-emerald-600" : "text-red-600");
+        document.getElementById("detail").textContent = ok
+          ? `Rent is ${pct}% of income. Max recommended is Ksh ${maxRent.toLocaleString()}. You'll have Ksh ${left.toLocaleString()} left.`
+          : `Rent is ${pct}% of income. Max recommended is Ksh ${maxRent.toLocaleString()}. Try a cheaper house or increase income.`;
+        document.getElementById("bar").style.width = Math.min(pct, 100) + "%";
+        document.getElementById("bar").className =
+          "h-3 rounded-full " + (ok ? "bg-emerald-500" : "bg-red-500");
+        document.getElementById("percent").textContent =
+          `Rent takes ${pct}% of your income (Target: 30% or less)`;
+      }
+    </script>
   </body>
 </html>
