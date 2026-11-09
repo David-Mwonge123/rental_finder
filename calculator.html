@@ -33,5 +33,62 @@
         >Add a Listing
       </a>
     </nav>
+    <main class="max-w-md mx-auto px-5 py-8">
+      <h1 class="text-2xl font-extrabold">Can You Afford It? 🧮</h1>
+      <p class="text-sm text-slate-500 mt-1">
+        Rule: Rent should be max 30% of your income.
+      </p>
+
+      <div class="bg-white rounded-2xl p-6 shadow-sm mt-6 space-y-4">
+        <div>
+          <label class="text-sm font-bold">Monthly Income (Ksh)</label>
+          <input
+            id="income"
+            type="number"
+            placeholder="e.g. 50000"
+            oninput="calc()"
+            class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+          />
+        </div>
+        <div>
+          <label class="text-sm font-bold">House Rent (Ksh)</label>
+          <input
+            id="rent"
+            type="number"
+            placeholder="e.g. 15000"
+            oninput="calc()"
+            class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+          />
+        </div>
+        <div>
+          <label class="text-sm font-bold">Other Monthly Expenses (Ksh)</label>
+          <input
+            id="expenses"
+            type="number"
+            placeholder="e.g. 10000"
+            value="0"
+            oninput="calc()"
+            class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+          />
+        </div>
+      </div>
+
+      <div
+        id="result"
+        class="hidden bg-white rounded-2xl p-6 shadow-sm mt-4 text-center"
+      >
+        <p id="verdict" class="text-xl font-extrabold"></p>
+        <p id="detail" class="text-sm text-slate-500 mt-2"></p>
+        <div class="w-full bg-slate-100 rounded-full h-3 mt-4 overflow-hidden">
+          <div id="bar" class="h-3 rounded-full" style="width: 0%"></div>
+        </div>
+        <p id="percent" class="text-xs text-slate-500 mt-2"></p>
+        <a
+          href="listings.html"
+          class="inline-block mt-4 bg-emerald-600 text-white font-bold text-sm px-6 py-2.5 rounded-full"
+          >Find Houses In Budget</a
+        >
+      </div>
+    </main>
   </body>
 </html>
