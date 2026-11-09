@@ -111,7 +111,7 @@
         <p>${h.area}</p>
         <p>${h.type} | ${h.beds} Bed | ${h.baths} Bath</p>
         <p class="text-emerald-600 font-extrabold text-lg">Ksh ${h.price.toLocaleString()}/month</p>
-        <p>Water: ${h.water || "N/A"} | Wifi: ${h.wifi ? "Yes" : "No"} | Security: ${h.security || "N/A"}</p>
+        <p>Water: ${h.water || "N/A"} | Wifi: ${h.wifi || "N/A"} | Security: ${h.security || "N/A"}</p>
         <a href="details.html?id=${h.id}" class="block text-center bg-emerald-600 text-white font-bold py-2.5 rounded-full mt-3">View Details</a>
       </div>
     </div>`;
