@@ -22,7 +22,9 @@
         <a href="listings.html" class="hover:text-emerald-600">Listings</a>
         <a href="about.html" class="hover:text-emerald-600">About</a>
         <a href="about.html#contact" class="hover:text-emerald-600">Contact</a>
-        <a href="my-listings.html" class="hover:text-emerald-600">My Listings</a>
+        <a href="my-listings.html" class="hover:text-emerald-600"
+          >My Listings</a
+        >
         <a href="favourites.html">Favourites</a>
       </div>
       <a
@@ -38,6 +40,25 @@
         class="text-sm font-medium text-slate-600 hover:text-emerald-600"
         >Back to Listings</a
       >
+      <div class="bg-slate-50 rounded-2xl p-4 mt-4">
+        <h3 class="font-bold text-sm">Book a Viewing</h3>
+        <div class="flex gap-2 mt-3">
+          <input
+            id="bookDate"
+            type="date"
+            class="flex-1 px-4 py-2.5 bg-white border rounded-full text-sm outline-none"
+          />
+          <button
+            onclick="bookViewing()"
+            class="bg-emerald-600 text-white font-bold text-sm px-5 py-2.5 rounded-full"
+          >
+            Book
+          </button>
+        </div>
+        <p id="bookMsg" class="hidden text-emerald-600 font-bold text-xs mt-2">
+          Booked! See it in My Bookings.
+        </p>
+      </div>
 
       <div id="details" class="mt-4"></div>
       <p id="notFound" class="hidden text-center py-16 text-slate-500">
