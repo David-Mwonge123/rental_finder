@@ -42,5 +42,39 @@
         >
       </div>
     </main>
+    <script>
+      function renderBookings() {
+        const b = JSON.parse(localStorage.getItem("bookings") || "[]");
+        document.getElementById("count").textContent =
+          `You have ${b.length} viewing(s)`;
+        document
+          .getElementById("empty")
+          .classList.toggle("hidden", b.length > 0);
+        document.getElementById("list").innerHTML = b
+          .map(
+            (x) => `
+      <div class="bg-white rounded-2xl p-4 flex gap-4 items-center shadow-sm">
+        <img src="${x.image}" class="w-20 h-20 object-cover rounded-xl" />
+        <div class="flex-1">
+          <h3 class="font-bold text-sm">${x.title}</h3>
+          <p class="text-xs text-slate-500">${x.area} | Ksh ${x.price.toLocaleString()}/month</p>
+          <p class="text-xs font-bold text-emerald-600 mt-1">${x.date}</p>
+        </div>
+        <div class="flex flex-col gap-2">
+          <a href="https://wa.me/${x.phone}?text=${encodeURIComponent("Hi, I booked a viewing for " + x.title + " on " + x.date)}" target="_blank" class="bg-emerald-600 text-white text-xs font-bold px-3 py-2 rounded-full text-center">WhatsApp</a>
+          <button onclick="cancelBooking(${x.id})" class="bg-red-50 text-red-600 text-xs font-bold px-3 py-2 rounded-full">Cancel</button>
+        </div>
+      </div>`,
+          )
+          .join("");
+      }
+      function cancelBooking(id) {
+        let b = JSON.parse(localStorage.getItem("bookings") || "[]");
+        b = b.filter((x) => x.id !== id);
+        localStorage.setItem("bookings", JSON.stringify(b));
+        renderBookings();
+      }
+      renderBookings();
+    </script>
   </body>
 </html>
