@@ -29,90 +29,91 @@
         >Add a Listing
       </a>
     </nav>
-
-    <section class="bg-white rounded-2xl p-6 shadow-sm">
-      <h1 class="text-2xl font-extrabold">About Nairobi Rentals</h1>
-      <p class="text-slate-600 text-sm mt-3 leading-relaxed">
-        Nairobi Rentals helps students and young professionals find verified
-        houses in Nairobi without agents or hidden fees. Every listing shows the
-        real price, water, wifi, security and the landlord's direct phone
-        number. No middlemen, no fake listings.
-      </p>
-      <div class="grid grid-cols-3 gap-4 mt-5 text-center">
-        <div>
-          <p class="text-xl font-extrabold text-emerald-600">12+</p>
-          <p class="text-xs text-slate-500">Verified Houses</p>
-        </div>
-        <div>
-          <p class="text-xl font-extrabold text-emerald-600">10</p>
-          <p class="text-xs text-slate-500">Areas Covered</p>
-        </div>
-        <div>
-          <p class="text-xl font-extrabold text-emerald-600">0</p>
-          <p class="text-xs text-slate-500">Agent Fees</p>
-        </div>
-      </div>
-    </section>
-    <section class="bg-white rounded-2xl p-6 shadow-sm">
-      <h2 class="font-extrabold text-lg">How It Works</h2>
-      <ol class="text-sm text-slate-600 space-y-2 mt-3">
-        <li><b>1. Search:</b> Filter by area, type and price on Listings.</li>
-        <li>
-          <b>2. Compare & Save:</b> Tap &#9829; to save, or compare 2 houses
-          side-by-side.
-        </li>
-        <li>
-          <b>3. Contact:</b> Call or WhatsApp the landlord directly from the
-          Details page.
-        </li>
-        <li><b>4. Book:</b> Book a viewing and manage it in My Bookings.</li>
-      </ol>
-    </section>
-    <section id="help" class="bg-white rounded-2xl p-6 shadow-sm">
-      <h2 class="font-extrabold text-lg">Help / FAQ</h2>
-      <div class="text-sm text-slate-600 space-y-3 mt-3">
-        <p>
-          <b>Is it free?</b> Yes. Searching is free. Landlords list for free.
+    <main>
+      <section class="bg-white rounded-2xl p-6 shadow-sm">
+        <h1 class="text-2xl font-extrabold">About Nairobi Rentals</h1>
+        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+          Nairobi Rentals helps students and young professionals find verified
+          houses in Nairobi without agents or hidden fees. Every listing shows
+          the real price, water, wifi, security and the landlord's direct phone
+          number. No middlemen, no fake listings.
         </p>
-        <p>
-          <b>How do I book a viewing?</b> Open a house -> Book Viewing -> pick
-          date -> see it in My Bookings.
+        <div class="grid grid-cols-3 gap-4 mt-5 text-center">
+          <div>
+            <p class="text-xl font-extrabold text-emerald-600">12+</p>
+            <p class="text-xs text-slate-500">Verified Houses</p>
+          </div>
+          <div>
+            <p class="text-xl font-extrabold text-emerald-600">10</p>
+            <p class="text-xs text-slate-500">Areas Covered</p>
+          </div>
+          <div>
+            <p class="text-xl font-extrabold text-emerald-600">0</p>
+            <p class="text-xs text-slate-500">Agent Fees</p>
+          </div>
+        </div>
+      </section>
+      <section class="bg-white rounded-2xl p-6 shadow-sm">
+        <h2 class="font-extrabold text-lg">How It Works</h2>
+        <ol class="text-sm text-slate-600 space-y-2 mt-3">
+          <li><b>1. Search:</b> Filter by area, type and price on Listings.</li>
+          <li>
+            <b>2. Compare & Save:</b> Tap &#9829; to save, or compare 2 houses
+            side-by-side.
+          </li>
+          <li>
+            <b>3. Contact:</b> Call or WhatsApp the landlord directly from the
+            Details page.
+          </li>
+          <li><b>4. Book:</b> Book a viewing and manage it in My Bookings.</li>
+        </ol>
+      </section>
+      <section id="help" class="bg-white rounded-2xl p-6 shadow-sm">
+        <h2 class="font-extrabold text-lg">Help / FAQ</h2>
+        <div class="text-sm text-slate-600 space-y-3 mt-3">
+          <p>
+            <b>Is it free?</b> Yes. Searching is free. Landlords list for free.
+          </p>
+          <p>
+            <b>How do I book a viewing?</b> Open a house -> Book Viewing -> pick
+            date -> see it in My Bookings.
+          </p>
+          <p><b>How do I delete my listing?</b> Go to My Listings -> Delete.</p>
+          <p>
+            <b>Why is my listing not showing?</b> Refresh Listings. Your
+            listings are saved on this device only.
+          </p>
+        </div>
+      </section>
+      <section id="contact" class="bg-white rounded-2xl p-6 shadow-sm">
+        <h2 class="font-extrabold text-lg">Contact Us</h2>
+        <p class="text-sm text-slate-500 mt-1">We reply within 24 hours.</p>
+        <form onsubmit="sendMsg(event)" class="space-y-3 mt-4">
+          <input
+            id="cName"
+            required
+            placeholder="Your name"
+            class="w-full px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+          />
+          <input
+            id="cMsg"
+            required
+            placeholder="How can we help?"
+            class="w-full px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+          />
+          <button
+            class="w-full bg-emerald-600 text-white font-bold py-3 rounded-full"
+          >
+            Submit
+          </button>
+        </form>
+        <p class="text-center text-sm text-slate-500 mt-4">
+          Or call:
+          <a href="tel:+254722123456" class="text-emerald-600 font-bold"
+            >0722 123 456</a
+          >
         </p>
-        <p><b>How do I delete my listing?</b> Go to My Listings -> Delete.</p>
-        <p>
-          <b>Why is my listing not showing?</b> Refresh Listings. Your listings
-          are saved on this device only.
-        </p>
-      </div>
-    </section>
-    <section id="contact" class="bg-white rounded-2xl p-6 shadow-sm">
-      <h2 class="font-extrabold text-lg">Contact Us</h2>
-      <p class="text-sm text-slate-500 mt-1">We reply within 24 hours.</p>
-      <form onsubmit="sendMsg(event)" class="space-y-3 mt-4">
-        <input
-          id="cName"
-          required
-          placeholder="Your name"
-          class="w-full px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
-        />
-        <input
-          id="cMsg"
-          required
-          placeholder="How can we help?"
-          class="w-full px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
-        />
-        <button
-          class="w-full bg-emerald-600 text-white font-bold py-3 rounded-full"
-        >
-          Submit
-        </button>
-      </form>
-      <p class="text-center text-sm text-slate-500 mt-4">
-        Or call:
-        <a href="tel:+254722123456" class="text-emerald-600 font-bold"
-          >0722 123 456</a
-        >
-      </p>
-    </section>
+      </section>
+    </main>
   </body>
 </html>
