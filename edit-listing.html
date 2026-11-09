@@ -156,5 +156,19 @@
         Updated! Redirecting...
       </p>
     </form>
+
+    <script>
+      const id = Number(new URLSearchParams(location.search).get("id"));
+      let mine = JSON.parse(localStorage.getItem("userListings") || "[]");
+      const h = mine.find((x) => x.id === id);
+      if (!h) location.href = "my-listings.html";
+      const cur = JSON.parse(localStorage.getItem("currentUser") || "null");
+      if (!cur || (cur.phone !== h.ownerPhone && cur.phone !== h.phone)) {
+        if (h.ownerPhone) {
+          alert("You can only edit your own listings");
+          location.href = "my-listings.html";
+        }
+      }
+    </script>
   </body>
 </html>
