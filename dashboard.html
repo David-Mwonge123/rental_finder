@@ -106,5 +106,46 @@
         >
       </div>
     </main>
+    <script src="js/script.js"></script>
+    <script>
+      const favs = JSON.parse(localStorage.getItem("favs") || "[]");
+      const bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
+      const mine = JSON.parse(localStorage.getItem("userListings") || "[]");
+      const userListings = JSON.parse(
+        localStorage.getItem("userListings") || "[]",
+      );
+      const all = [...listings, ...userListings];
+
+      document.getElementById("favCount").textContent = favs.length;
+      document.getElementById("bookCount").textContent = bookings.length;
+      document.getElementById("myCount").textContent = mine.length;
+
+      const today = new Date().toISOString().split("T")[0];
+      const upcoming = bookings
+        .filter((b) => b.date >= today)
+        .sort((a, b) => a.date.localeCompare(b.date))[0];
+      document.getElementById("nextViewing").innerHTML = upcoming
+        ? `<p class="text-sm"><b class="text-emerald-600">${upcoming.date}</b> - ${upcoming.title} in ${upcoming.area}</p>
+       <a href="my-bookings.html" class="inline-block mt-3 bg-slate-100 font-bold text-sm px-4 py-2 rounded-full">Manage Bookings</a>`
+        : `<p class="text-sm text-slate-500">No upcoming viewings. Book one from any house page.</p>
+       <a href="listings.html" class="inline-block mt-3 bg-emerald-600 text-white font-bold text-sm px-4 py-2 rounded-full">Find a House</a>`;
+
+      const favHouses = favs
+        .map((id) => all.find((h) => h.id === id))
+        .filter(Boolean)
+        .slice(-3)
+        .reverse();
+      document.getElementById("recentFavs").innerHTML = favHouses.length
+        ? favHouses
+            .map(
+              (h) => `
+      <a href="details.html?id=${h.id}" class="flex gap-3 items-center bg-slate-50 rounded-xl p-3">
+        <img src="${h.image}" class="w-16 h-16 object-cover rounded-lg" />
+        <div><p class="font-bold text-sm leading-tight">${h.title}</p><p class="text-xs text-slate-500 mt-1">Ksh ${h.price.toLocaleString()}/month</p></div>
+      </a>`,
+            )
+            .join("")
+        : `<p class="text-sm text-slate-500 col-span-full">No favourites yet. Tap &#9829; on any house.</p>`;
+    </script>
   </body>
 </html>
