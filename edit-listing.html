@@ -194,6 +194,27 @@
           };
           reader.readAsDataURL(file);
         });
+      document
+        .getElementById("editForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const updated = {
+            ...h,
+            title: document.getElementById("title").value.trim(),
+            area: document.getElementById("area").value,
+            type: document.getElementById("type").value,
+            price: Number(document.getElementById("price").value),
+            phone: document.getElementById("phone").value.trim(),
+            water: document.getElementById("water").value,
+            wifi: document.getElementById("wifi").value,
+            security: document.getElementById("security").value,
+            image: imageData,
+          };
+          mine = mine.map((x) => (x.id === id ? updated : x));
+          localStorage.setItem("userListings", JSON.stringify(mine));
+          document.getElementById("successMsg").classList.remove("hidden");
+          setTimeout(() => (location.href = "my-listings.html"), 1000);
+        });
     </script>
   </body>
 </html>
