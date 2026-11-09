@@ -28,6 +28,52 @@
       action="#"
       id="editForm"
       class="bg-white rounded-2xl shadow-sm p-6 mt-6 space-y-4"
-    ></form>
+    >
+      <div>
+        <label class="font-bold text-sm">House Title</label
+        ><input
+          id="title"
+          required
+          class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+        />
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label class="font-bold text-sm">Area</label>
+          <select
+            id="area"
+            required
+            class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+          >
+            <option value="">Select Area</option>
+            <option>Westlands</option>
+            <option>Kilimani</option>
+            <option>Ruaka</option>
+            <option>Roysambu</option>
+            <option>Ngong</option>
+            <option>Kileleshwa</option>
+            <option>Embakasi</option>
+            <option>Umoja</option>
+            <option>Thika</option>
+            <option>Kasarani</option>
+          </select>
+        </div>
+        <div>
+          <label class="font-bold text-sm">Type</label>
+          <select
+            id="type"
+            required
+            class="w-full mt-1 px-4 py-3 bg-slate-100 rounded-xl outline-none text-sm"
+          >
+            <option value="">Select Type</option>
+            <option value="Bedsitter">Bedsitter</option>
+            <option value="Studio">Studio</option>
+            <option value="1bedroom">1 Bedroom</option>
+            <option value="2bedroom">2 Bedroom</option>
+            <option value="3bedroom">3 Bedroom</option>
+          </select>
+        </div>
+      </div>
+    </form>
   </body>
 </html>
