@@ -55,6 +55,38 @@
       <div id="result" class="grid md:grid-cols-2 gap-4 mt-6"></div>
       <p id="winner" class="text-center font-bold text-emerald-600 mt-6"></p>
     </main>
+    <footer class="bg-white border-t border-slate-200 px-5 py-8 md:px-10">
+      <div
+        class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 max-w-6xl mx-auto"
+      >
+        <div class="text-xl font-extrabold">
+          Nairobi<span class="text-emerald-600">Rentals</span>
+        </div>
+        <p>
+          Follow us on:
+          <a
+            href="#"
+            aria-label="visit our facebook page"
+            class="text-2xl text-emerald-600"
+            ><i class="fa-brands fa-square-facebook"></i
+          ></a>
+          <a
+            href="#"
+            aria-label="visit our instagram page"
+            class="text-2xl text-emerald-600"
+            ><i class="fa-brands fa-square-instagram"></i
+          ></a>
+          <a
+            href="#"
+            aria-label="visit our tiktok page"
+            class="text-2xl text-emerald-600"
+            ><i class="fa-brands fa-tiktok"></i
+          ></a>
+        </p>
+
+        <p class="font-bold">&copy; 2026 Nairobi Rental Finder</p>
+      </div>
+    </footer>
     <script src="js/script.js"></script>
     <script>
       const all = [
@@ -80,7 +112,7 @@
         <p>${h.type} | ${h.beds} Bed | ${h.baths} Bath</p>
         <p class="text-emerald-600 font-extrabold text-lg">Ksh ${h.price.toLocaleString()}/month</p>
         <p>Water: ${h.water || "N/A"} | Wifi: ${h.wifi ? "Yes" : "No"} | Security: ${h.security || "N/A"}</p>
-        <a href="details.html?id=${h.id}" class="block text-center bg-slate-100 font-bold py-2.5 rounded-full mt-3">View Details</a>
+        <a href="details.html?id=${h.id}" class="block text-center bg-emerald-600 text-white font-bold py-2.5 rounded-full mt-3">View Details</a>
       </div>
     </div>`;
       }
