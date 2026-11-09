@@ -55,5 +55,52 @@
       <div id="result" class="grid md:grid-cols-2 gap-4 mt-6"></div>
       <p id="winner" class="text-center font-bold text-emerald-600 mt-6"></p>
     </main>
+    <script src="js/script.js"></script>
+    <script>
+      const all = [
+        ...listings,
+        ...JSON.parse(localStorage.getItem("userListings") || "[]"),
+      ];
+      const opts = all
+        .map(
+          (h) =>
+            `<option value="${h.id}">${h.title} - Ksh ${h.price.toLocaleString()}</option>`,
+        )
+        .join("");
+      document.getElementById("houseA").innerHTML = opts;
+      document.getElementById("houseB").innerHTML = opts;
+      document.getElementById("houseB").selectedIndex = 1;
+
+      function card(h) {
+        return `<div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+      <img src="${h.image}" class="w-full h-48 object-cover" />
+      <div class="p-5 text-sm space-y-2">
+        <h3 class="font-bold text-base">${h.title}</h3>
+        <p>${h.area}</p>
+        <p>${h.type} | ${h.beds} Bed | ${h.baths} Bath</p>
+        <p class="text-emerald-600 font-extrabold text-lg">Ksh ${h.price.toLocaleString()}/month</p>
+        <p>Water: ${h.water || "N/A"} | Wifi: ${h.wifi ? "Yes" : "No"} | Security: ${h.security || "N/A"}</p>
+        <a href="details.html?id=${h.id}" class="block text-center bg-slate-100 font-bold py-2.5 rounded-full mt-3">View Details</a>
+      </div>
+    </div>`;
+      }
+      function compare() {
+        const a = all.find(
+          (h) => h.id == document.getElementById("houseA").value,
+        );
+        const b = all.find(
+          (h) => h.id == document.getElementById("houseB").value,
+        );
+        if (!a || !b) return;
+        document.getElementById("result").innerHTML = card(a) + card(b);
+        const cheaper = a.price < b.price ? a.title : b.title;
+        const diff = Math.abs(a.price - b.price).toLocaleString();
+        document.getElementById("winner").textContent =
+          a.price === b.price
+            ? "Same price!"
+            : `${cheaper} is cheaper by Ksh ${diff}/month`;
+      }
+      compare();
+    </script>
   </body>
 </html>
