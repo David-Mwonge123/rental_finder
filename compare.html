@@ -1,16 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Compare | Nairobi Rentals</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
     />
-</head>
-<body>
+  </head>
+  <body>
     <nav
       class="flex items-center justify-between px-5 py-4 bg-white shadow-sm sticky top-0 z-10 md:px-10"
     >
@@ -33,5 +33,27 @@
         >Add a Listing
       </a>
     </nav>
-</body>
+    <main class="max-w-5xl mx-auto px-5 md:px-10 py-8">
+      <h1 class="text-2xl font-extrabold">Compare Houses</h1>
+      <p class="text-sm text-slate-500 mt-1">
+        Pick 2 houses to compare side-by-side.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-4 mt-6">
+        <select
+          id="houseA"
+          onchange="compare()"
+          class="w-full px-4 py-3 bg-white border rounded-xl text-sm outline-none"
+        ></select>
+        <select
+          id="houseB"
+          onchange="compare()"
+          class="w-full px-4 py-3 bg-white border rounded-xl text-sm outline-none"
+        ></select>
+      </div>
+
+      <div id="result" class="grid md:grid-cols-2 gap-4 mt-6"></div>
+      <p id="winner" class="text-center font-bold text-emerald-600 mt-6"></p>
+    </main>
+  </body>
 </html>
