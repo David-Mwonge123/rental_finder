@@ -176,6 +176,24 @@
         }
         localStorage.setItem("favs", JSON.stringify(favs));
       }
+      function bookViewing() {
+        const date = document.getElementById("bookDate").value;
+        if (!date) return alert("Please pick a date");
+        const bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
+        bookings.push({
+          id: Date.now(),
+          houseId: h.id,
+          title: h.title,
+          area: h.area,
+          price: h.price,
+          image: h.image,
+          phone: h.phone,
+          date,
+        });
+        localStorage.setItem("bookings", JSON.stringify(bookings));
+        document.getElementById("bookMsg").classList.remove("hidden");
+        setTimeout(() => (window.location.href = "my-bookings.html"), 800);
+      }
     </script>
   </body>
 </html>
