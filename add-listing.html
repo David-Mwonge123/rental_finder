@@ -190,7 +190,17 @@
     </main>
 
     <script>
-      let imageData = "images/aptmnt1.jpg"; // default photo
+      let imageData = "images/aptmnt1.jpg";
+      const currentUser = JSON.parse(
+        localStorage.getItem("currentUser") || "null",
+      );
+      if (!currentUser) {
+        alert("Please create an account first");
+        window.location.href = "auth.html";
+      } else if (!currentUser.verified) {
+        alert("Please verify your number first");
+        window.location.href = "auth.html";
+      }
 
       document
         .getElementById("imageInput")
