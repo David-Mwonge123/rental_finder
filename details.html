@@ -118,6 +118,13 @@
       const allListings = [...listings, ...userListings];
       const h = allListings.find((house) => house.id === id);
 
+      const bookDateEl = document.getElementById("bookDate");
+      const today = new Date().toISOString().split("T")[0];
+      const maxDate = new Date();
+      maxDate.setFullYear(maxDate.getFullYear() + 1);
+      bookDateEl.min = today;
+      bookDateEl.max = maxDate.toISOString().split("T")[0];
+
       function formatType(t) {
         if (t === "1bedroom") return "1 Bedroom";
         if (t === "2bedroom") return "2 Bedroom";
@@ -185,6 +192,7 @@
       function bookViewing() {
         const date = document.getElementById("bookDate").value;
         if (!date) return alert("Please pick a date");
+        if (date < today) return alert("You can't book a date in the past");
         const bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
         bookings.push({
           id: Date.now(),
