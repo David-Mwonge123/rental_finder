@@ -224,6 +224,8 @@
 
           const newHouse = {
             id: Date.now(),
+            ownerPhone: currentUser.phone,
+            ownerName: currentUser.name,
             title: document.getElementById("title").value.trim(),
             area: document.getElementById("area").value,
             type: document.getElementById("type").value,
