@@ -169,6 +169,17 @@
           location.href = "my-listings.html";
         }
       }
+      let imageData = h.image;
+      document.getElementById("preview").src = imageData;
+      document.getElementById("preview").classList.remove("hidden");
+      document.getElementById("title").value = h.title;
+      document.getElementById("area").value = h.area;
+      document.getElementById("type").value = h.type;
+      document.getElementById("price").value = h.price;
+      document.getElementById("phone").value = h.phone;
+      document.getElementById("water").value = h.water;
+      document.getElementById("wifi").value = h.wifi;
+      document.getElementById("security").value = h.security;
     </script>
   </body>
 </html>
