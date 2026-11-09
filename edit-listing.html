@@ -180,6 +180,20 @@
       document.getElementById("water").value = h.water;
       document.getElementById("wifi").value = h.wifi;
       document.getElementById("security").value = h.security;
+      document
+        .getElementById("imageInput")
+        .addEventListener("change", function (e) {
+          const file = e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = function () {
+            imageData = reader.result;
+            const p = document.getElementById("preview");
+            p.src = imageData;
+            p.classList.remove("hidden");
+          };
+          reader.readAsDataURL(file);
+        });
     </script>
   </body>
 </html>
