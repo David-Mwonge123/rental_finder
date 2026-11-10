@@ -1,5 +1,5 @@
 # Nairobi Rentals
-**Live Demo:**
+**Live Demo:** https://david-mwonge123.github.io/rental_finder/
 ## Overview
 Nairobi Rentals is a multi-page website for finding houses in Nairobi without brokers. You can be able to search, filter,save favourites, compare houses, book viewing, check if you can afford it and even list your own house. This project uses HTML, Tailwind and JavaScript, and everything is saved in the browser using localStorage.
 
