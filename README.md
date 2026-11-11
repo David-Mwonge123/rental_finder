@@ -39,7 +39,10 @@ This is a **front-end only** demo built with HTML, CSS, JavaScript and `localSto
 3. **JavaScript** - Functionailty in buttons, dashboard, calculator,CRUD.
 
 ### How to run 
-- Clone the repo - ```bash git clone https://github.com/David-Mwonge123/rental_finder
+- Clone the repo -  
+```bash 
+git clone https://github.com/David-Mwonge123/rental_finder
+```
 - Go into the project folder cd organic_living
 - Open in VS Code code .
 - Open with Live Server -Install Live Server extension in VS Code -Right-click index.html>Open with live server -Or just double-click index.html in file explorer.
